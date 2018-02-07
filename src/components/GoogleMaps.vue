@@ -25,11 +25,11 @@ export default {
   name: 'google-maps',
   data() {
     return {
-      center: { lat: 1.03, lng: 103.0 },
+      center: { lat: 1.3521, lng: 103.8198 },
       markers: [{
-        position: { lat: 1.03, lng: 103.0 },
+        position: { lat: 1.3522, lng: 103.8198 },
       }, {
-        position: { lat: 1.03, lng: 103.0 },
+        position: { lat: 1.3521, lng: 103.8618 },
       }],
     };
   },

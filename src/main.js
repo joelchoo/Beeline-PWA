@@ -5,7 +5,7 @@ import VueResource from 'vue-resource';
 
 // [Start Buefy]
 import Buefy from 'buefy';
-import 'buefy/lib/buefy.css';
+// import 'buefy/lib/buefy.css';
 // [End Buefy]
 
 import App from './App';
@@ -23,3 +23,4 @@ new Vue({
   template: '<App/>',
   components: { App },
 });
+

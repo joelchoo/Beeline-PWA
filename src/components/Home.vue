@@ -1,10 +1,11 @@
 <template>
   <div class="home">
+    <navbar></navbar>
     <div class="columns is-gapless">
-      <div class="column">
-        <autocomplete></autocomplete>
+      <div class="column router-container">
+        <router-view></router-view>
       </div>
-      <div class="column is-two-thirds">
+      <div class="column maps-container is-two-thirds">
         <google-maps></google-maps>
       </div>
     </div>
@@ -12,7 +13,7 @@
 </template>
 
 <script>
-import Autocomplete from './Autocomplete';
+import Navbar from './Navbar';
 import GoogleMaps from './GoogleMaps';
 
 export default {
@@ -24,7 +25,7 @@ export default {
   },
   components: {
     GoogleMaps,
-    Autocomplete,
+    Navbar,
   },
 };
 </script>
@@ -48,5 +49,28 @@ li {
 
 a {
   color: #35495e;
+}
+.columns {
+  display: flex !important;
+  flex-direction: row;
+}
+
+.router-container {
+  height: calc(100vh - 52px);
+  margin-top: 52px !important;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .columns {
+    flex-direction: column;
+  }
+  .maps-container {
+    order: 1;
+  }
+  .router-container {
+    order: 2;
+    position: absolute;
+    z-index: 6;
+  }
 }
 </style>

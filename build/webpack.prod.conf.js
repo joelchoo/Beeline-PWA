@@ -128,6 +128,16 @@ const webpackConfig = merge(baseWebpackConfig, {
           handler: 'cacheFirst'
         },
         // [End Font Awesome]
+
+        // [Start Beeline]
+        {
+          urlPattern: /^https:\/\/api\.beeline\.sg\//,
+          handler: 'cacheFirst'
+        },{
+          urlPattern: /^https:\/\/app\.beeline\.sg\//,
+          handler: 'cacheFirst'
+        },
+        // [End Beeline]
       ]
     })
   ]

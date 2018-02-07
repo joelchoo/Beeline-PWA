@@ -18,35 +18,13 @@
     <div id="mainNav"
          class="navbar-menu"
          :class="{'is-active': navIsActive}">
-      <div class="navbar-start">
+      <!-- <div class="navbar-start">
         <a class="navbar-item"
            href="https://bulma.io/">
           Home
         </a>
-      </div>
+      </div> -->
     </div>
-
-    <!-- <div class="navbar-end">
-      <div class="navbar-item">
-        <div class="field is-grouped">
-          <p class="control">
-            <a class="bd-tw-button button"
-               data-social-network="Twitter"
-               data-social-action="tweet"
-               data-social-target="http://localhost:4000"
-               target="_blank"
-               href="https://twitter.com/intent/tweet?text=Bulma: a modern CSS framework based on Flexbox&amp;hashtags=bulmaio&amp;url=http://localhost:4000&amp;via=jgthms">
-              <span class="icon">
-                <i class="fab fa-twitter"></i>
-              </span>
-              <span>
-                Tweet
-              </span>
-            </a>
-          </p>
-        </div>
-      </div>
-    </div> -->
   </nav>
 </template>
 <script>
@@ -65,7 +43,17 @@
   };
 </script>
 <style scoped>
+.navbar {
+  position: absolute;
+  width: 33.3333%;
+  z-index: 5;
+}
 .navbar-brand a .subtitle {
   color: #ffffff;
+}
+@media (min-width: 320px) and (max-width: 480px) {
+  .navbar {
+    width: 100%;
+  }
 }
 </style>
