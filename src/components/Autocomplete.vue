@@ -27,6 +27,7 @@
 <script>
 import _ from 'lodash';
 import Panel from './Panel';
+import * as beelineApi from '../specs/sessions/beeline';
 
 export default {
   name: 'autocomplete-container',
@@ -54,17 +55,17 @@ export default {
         option.from.toLowerCase().indexOf(input.toLowerCase()) >= 0 ||
         option.to.toLowerCase().indexOf(input.toLowerCase()) >= 0));
     },
-    getRoutesdata() {
+    async getRoutesdata() {
       this.isFetching = true;
       const date = Date.now();
-      this.$http.get(`https://api.beeline.sg/routes?includePath=true&includeTrips=true&startDate=${date}&limitTrips=5`)
-        .then(({ data }) => {
-          data.forEach(item => this.routes.push(item));
-          this.isFetching = false;
-        })
-        .catch((error) => {
-          throw error;
-        });
+      const limitTrips = 5;
+      try {
+        const { data } = await beelineApi.default(`includePath=true&includeTrips=true&startDate=${date}&limitTrips=${limitTrips}`);
+        data.forEach(route => this.routes.push(route));
+        this.isFetching = false;
+      } catch (error) {
+        throw error;
+      }
     },
   },
   created() {
