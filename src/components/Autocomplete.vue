@@ -26,6 +26,7 @@
 </template>
 <script>
 import _ from 'lodash';
+import LocalStorage from 'localforage';
 import Panel from './Panel';
 import * as beelineApi from '../specs/sessions/beeline';
 
@@ -60,10 +61,26 @@ export default {
       const date = Date.now();
       const limitTrips = 5;
       try {
-        const { data } = await beelineApi.default(`includePath=true&includeTrips=true&startDate=${date}&limitTrips=${limitTrips}`);
-        data.forEach(route => this.routes.push(route));
-        this.isFetching = false;
+        await LocalStorage.getItem('routes', async (err, val) => {
+          if (val === null) {
+            // Routes cannot be found in browser storage
+            // Fetch data from Beeline routes API
+            const { data } = await beelineApi.default(`includePath=true&includeTrips=true&startDate=${date}&limitTrips=${limitTrips}`);
+            data.forEach(route => this.routes.push(route));
+            const { error } = await LocalStorage.setItem('routes', data);
+            if (typeof (error) !== 'undefined') {
+              console.error(error);
+              throw error;
+            }
+            this.isFetching = false;
+          } else {
+            // Routes found in browser Database
+            this.routes = val;
+            this.isFetching = false;
+          }
+        });
       } catch (error) {
+        console.error(error);
         throw error;
       }
     },
@@ -84,7 +101,7 @@ export default {
 #autocomplete-container {
   /* Height: column - navbar - search field */
   height: calc(100vh - 52px);
-  background-color: #ffffff; 
+  background-color: #ffffff;
 }
 .field:not(:last-child) {
   margin-bottom: 0 !important;

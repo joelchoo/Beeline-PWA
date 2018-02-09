@@ -51,7 +51,12 @@
 .navbar-brand a .subtitle {
   color: #ffffff;
 }
-@media (min-width: 320px) and (max-width: 480px) {
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+@media (min-width: 320px) and (max-width: 768px) {
   .navbar {
     width: 100%;
   }

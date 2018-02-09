@@ -60,7 +60,7 @@ a {
   margin-top: 52px !important;
 }
 
-@media (min-width: 320px) and (max-width: 480px) {
+@media (min-width: 320px) and (max-width: 768px) {
   .columns {
     flex-direction: column;
   }

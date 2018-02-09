@@ -119,7 +119,6 @@ const webpackConfig = merge(baseWebpackConfig, {
           urlPattern: /^https:\/\/\w{3,}\.gstatic\.com\//,
           handler: 'cacheFirst'
         },
-
         // [End Google Maps]
 
         // [Start Font Awesome]
