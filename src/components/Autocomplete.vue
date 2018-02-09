@@ -67,8 +67,8 @@ export default {
             // Fetch data from Beeline routes API
             const { data } = await beelineApi.default(`includePath=true&includeTrips=true&startDate=${date}&limitTrips=${limitTrips}`);
             data.forEach(route => this.routes.push(route));
-            const { status, error } = await LocalStorage.setItem('routes', data);
-            if (status !== 200) {
+            const { error } = await LocalStorage.setItem('routes', data);
+            if (typeof (error) !== 'undefined') {
               throw error;
             }
             this.isFetching = false;
