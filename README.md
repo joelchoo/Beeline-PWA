@@ -42,7 +42,7 @@ Beeline PWA uses a number of open source projects to work properly:
 * [LocalForage] - Wraps IndexedDB, WebSQL, or localStorage using a simple but powerful API
 * [Axios] - Promise based HTTP client for the browser and node.js
 * [Sw-toolbox] - A collection of tools for service workers
-* [Serve] - a neat interface for listing the directory's contents and switching into sub folders.
+* [Serve] - A neat interface for listing the directory's contents and switching into sub folders.
 
 #### Test for production
 > Use Google Chrome to debug the Service Workers
