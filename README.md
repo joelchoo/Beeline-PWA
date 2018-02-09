@@ -81,7 +81,7 @@ Select your the hosting option upon running the aformentioned command, and selec
 - **.firebaserc**
 - **firebase.json**
 
-Configure the  `.firebase.json` file to reference the dist folder
+Configure the  `firebase.json` file to reference the dist folder
 ```sh
 {
   "hosting": {
