@@ -59,7 +59,7 @@ Navigate to the website:
 ```sh
 localhost:5000/#/
 ```
-Click on the **Application** tab and select the **Service Workers** tabs. Look for the **Offline** checkbox and reload the page.
+Click on the **Application** tab and select **Service Workers**. Look for the **Offline** checkbox and reload the page.
 
 #### Firebase hosting
 To host Beeline PWA porject on firebase:
@@ -77,7 +77,7 @@ Generate the necessary files
 $ firebase init
 ```
 
-Select your the hosting option upon running the aformentioned command, and select the appropriate firebase project. There are 2 files which will be generated in the root:
+Select the appropriate hosting option after running the aforementioned command, and select the appropriate firebase project. There are 2 files which will be generated in the root:
 - **.firebaserc**
 - **firebase.json**
 
